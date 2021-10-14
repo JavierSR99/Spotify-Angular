@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    /* COLORES */
+    --color-primario: #1DB954;
+    --color-secundario: #323232;
+    --color-negro: #000000;
+    --color-blanco: #FFFFFF;
+    --color-negro-2: #181818; 
+
+    /* FUENTES */
+    --font-size-1: 1rem;
+    --font-size-2: 1.2rem;
+    --font-size-3: 1.8rem;
+
+    /* SOMBRAS */
+    --sombra-primaria: rgb(0 0 0 / 35%) 0px 8px 24px;
+    --sombra-secundaria: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    /* BORDER RADIUS  */
+    --border-radius-1: .25rem;
+    --border-radius-2: .5rem;
+
+    /* FUENTES */
+    --fuente-primaria: 'Poppins', sans-serif;
+    
+    /* TIEMPO ANIMACIONES */
+    --animation-time: 200ms;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-negro);
+    font-family: var(--fuente-primaria);
+    font-size: var(--font-size-1);
+    color: var(--color-blanco);
+}
