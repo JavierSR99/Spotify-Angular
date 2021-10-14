@@ -1,0 +1,52 @@
+{
+    "data" : [
+        {
+            "_id" : 1,
+            "name" : "No Guidance",
+            "album" : "Indigo",
+            "cover" : "https://upload.wikimedia.org/wikipedia/en/e/ec/Chris_Brown_-_No_Guidance.png",
+            "artist" : {
+                "name" : "Chris Brown",
+                "nickname" : "Chris Brown",
+                "nationality" : "US"
+            },
+            "duration" : {
+                "start" : 0,
+                "end" : 423
+            },
+            "url" : "http://localhost:4200/track.mp3"
+        },
+        {
+            "_id" : 2,
+            "name" : "Indigo",
+            "album" : "Indigo",
+            "cover" : "https://i.scdn.co/image/ab67616d0000b2739e588b0c2afe8178b2b76231",
+            "artist" : {
+                "name" : "Chris Brown",
+                "nickname" : "Chris Brown",
+                "nationality" : "US"
+            },
+            "duration" : {
+                "start" : 0,
+                "end" : 315
+            },
+            "url" : "http://localhost:4200/track.mp3"
+        },
+        {
+            "_id" : 3,
+            "name" : "Malbec",
+            "album" : "Desde El Fin Del Mundo",
+            "cover" : "https://silenciowp.s3.amazonaws.com/wp-content/uploads/2021/04/Duki-portadadesdeelfindelmundo-600.jpg",
+            "artist" : {
+                "name" : "Duki",
+                "nickname" : "Duki",
+                "nationality" : "AR"
+            },
+            "duration" : {
+                "start" : 0,
+                "end" : 255
+            },
+            "url" : "http://localhost:4200/track.mp3"
+        }
+    ]
+}
