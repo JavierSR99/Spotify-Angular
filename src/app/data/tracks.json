@@ -12,7 +12,7 @@
             },
             "duration" : {
                 "start" : 0,
-                "end" : 423
+                "end" : 263
             },
             "url" : "http://localhost:4200/track.mp3"
         },
@@ -28,7 +28,7 @@
             },
             "duration" : {
                 "start" : 0,
-                "end" : 315
+                "end" : 195
             },
             "url" : "http://localhost:4200/track.mp3"
         },
@@ -44,7 +44,39 @@
             },
             "duration" : {
                 "start" : 0,
-                "end" : 255
+                "end" : 175
+            },
+            "url" : "http://localhost:4200/track.mp3"
+        },
+        {
+            "_id" : 4,
+            "name" : "Una Foto En Blanco Y Negro",
+            "album" : "Estados de Ánimo",
+            "cover" : "https://images-na.ssl-images-amazon.com/images/I/71%2B7pyahCrL._SL1500_.jpg",
+            "artist" : {
+                "name" : "El Canto Del Loco",
+                "nickname" : "El Canto Del Loco",
+                "nationality" : "ES"
+            },
+            "duration" : {
+                "start" : 0,
+                "end" : 210
+            },
+            "url" : "http://localhost:4200/track.mp3"
+        },
+        {
+            "_id" : 5,
+            "name" : "A Otro Lado",
+            "album" : "ep2🌧️",
+            "cover" : "https://images-na.ssl-images-amazon.com/images/I/81-nO%2BBj-IL._SY355_.jpg",
+            "artist" : {
+                "name" : "Natalia Lacunza",
+                "nickname" : "Nataliza Lacunza",
+                "nationality" : "ES"
+            },
+            "duration" : {
+                "start" : 0,
+                "end" : 183
             },
             "url" : "http://localhost:4200/track.mp3"
         }

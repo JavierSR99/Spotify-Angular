@@ -1,1 +1,17 @@
-<p>tracks-page works!</p>
+<div class="tracks-page">
+    <!-- SECTION TOP -->
+    <app-section-generic 
+        [title]="'Los hits más recientes'" 
+        [mode]="'small'"
+        [dataTracks]="mockTrackList"
+    >
+    </app-section-generic>
+
+    <!-- SECTION MEDIUM -->
+    <app-section-generic 
+        [title]="'Lo mejor de la música urbana'"
+        [mode]="'big'"
+        [dataTracks]="mockTrackList"
+    >
+    </app-section-generic>
+</div>
