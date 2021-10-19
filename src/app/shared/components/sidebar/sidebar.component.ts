@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,31 +15,36 @@ export class SidebarComponent implements OnInit {
 
   customOptions: Array<any> = [];
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.mainMenu.defaultOptions = [
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', 'auth']
+        router: ['/']
       },
       {
         name: 'Buscar',
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'search']
       },
       {
         name: 'Tu biblioteca',
         icon: 'uil uil-chart',
-        router: ['/', 'favorites'],
-        query: { hola: 'mundo' }
+        router: ['/', 'tracks'],
+        query : { hola : 'mundo' }
       }
     ];
 
     this.mainMenu.accessLink = [
       { name: 'Crear lista', icon: 'uil-plus-square' },
-      { name: 'Canciones que te gustan', icon: 'uil-heart-medical' }
+      { 
+        name: 'Canciones que te gustan', icon: 'uil-heart-medical',
+        router: ['/', 'favorites']
+      }
     ];
 
     this.customOptions = [
@@ -47,6 +53,16 @@ export class SidebarComponent implements OnInit {
       { name: 'Mi lista º3', router: ['/'] },
       { name: 'Mi lista º4', router: ['/'] }
     ];
+  }
+
+  goTo($event: any): void {
+    this.router.navigate(['/', 'favorites'], {
+      queryParams: {
+        key1: 'value',
+        key2: 'value2',
+        key3: 'value3'
+      }
+    });
   }
 
 }

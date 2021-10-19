@@ -12,6 +12,8 @@ export class PlayListBodyComponent implements OnInit {
   tracks: Array<TrackModel> = [];
   timing: string[] = [];
 
+  optionSort: { property: string | null, order: string } = { property: null, order : 'asc' };
+
   constructor() { }
 
   ngOnInit(): void {
@@ -32,6 +34,14 @@ export class PlayListBodyComponent implements OnInit {
       var second: number | string = seconds % 60;
       second = (second < 10)? '0' + second : second;
       return minute + ':' + second;
+  }
+
+  changeSort(property:string): void {
+    const { order } = this.optionSort;
+    this.optionSort = {
+      property : property,
+      order : order === 'asc' ? 'desc' : 'asc'
+    };
   }
 
 }
