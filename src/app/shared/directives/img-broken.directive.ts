@@ -7,7 +7,6 @@ export class ImgBrokenDirective {
   @Input() customImg: string = '../../../assets/images/error.png';
   @HostListener('error') handleError(): void {
     const nativeEl = this.host.nativeElement;
-    // console.log('IMG not found', nativeEl);
     nativeEl.src = this.customImg;
   }
 

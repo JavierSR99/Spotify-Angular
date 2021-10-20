@@ -36,3 +36,11 @@ body {
     font-size: var(--font-size-1);
     color: var(--color-blanco);
 }
+
+input, button {
+    font-family: var(--fuente-primaria);
+}
+
+button:disabled {
+    opacity: .5;
+}

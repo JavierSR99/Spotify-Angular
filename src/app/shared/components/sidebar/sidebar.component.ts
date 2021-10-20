@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TrackService } from '@modules/tracks/services/track.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,7 +17,8 @@ export class SidebarComponent implements OnInit {
   customOptions: Array<any> = [];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _trackService: TrackService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class SidebarComponent implements OnInit {
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/']
+        router: ['/', 'tracks']
       },
       {
         name: 'Buscar',
@@ -53,6 +55,15 @@ export class SidebarComponent implements OnInit {
       { name: 'Mi lista º3', router: ['/'] },
       { name: 'Mi lista º4', router: ['/'] }
     ];
+
+    // this._trackService.dataTracksRandom$.subscribe((response: any) => {
+    //   this.customOptions.push(
+    //     {
+    //       name : response[0].name,
+    //       router : []
+    //     }
+    //   );
+    // });
   }
 
   goTo($event: any): void {
