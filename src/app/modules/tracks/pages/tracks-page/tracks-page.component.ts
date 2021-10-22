@@ -20,8 +20,19 @@ export class TracksPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  ngOnDestroy(): void {
+    
+  }
+
+  loadData() {
     this._tracksService.getAllTracks$().subscribe((response: TrackModel[]) => {
       this.tracksTrending = response;
+    },
+    err => {
+      console.log(`Error de conexión: ${err}`);
     });
 
     this._tracksService.getAllRandom$().subscribe((response: TrackModel[]) => {
@@ -29,8 +40,10 @@ export class TracksPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    
-  }
+  // async loadDataPromise(): Promise<any> {
+  //   const dataRaw = await this._tracksService.getAllTracks$().toPromise()
+  //   .then(res => {})
+  //   .catch(err => {})
+  // }
 
 }

@@ -4,14 +4,15 @@ import { HomePageComponent } from '@modules/home/pages/home-page/home-page.compo
 
 const routes: Routes = [
   {
+    path: 'auth',
+    loadChildren: () => import(`../app/modules/auth/auth.module`).then(m => m.AuthModule)
+  },
+  {
     path: '',
     component: HomePageComponent,
     loadChildren: () => import(`../app/modules/home/home.module`).then(m => m.HomeModule)
-  },
-  {
-    path: 'auth',
-    loadChildren: () => import(`../app/modules/auth/auth.module`).then(m => m.AuthModule)
   }
+  
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { TrackModel } from '@core/models/tracks.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map, mergeMap, tap } from 'rxjs/operators';
+import { map, mergeMap, tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,14 +22,14 @@ export class TrackService {
       .pipe(
         map(({ data }: any) => {
           return data;
+        }),
+        catchError((err) => {
+          return of([]);
         })
       );
   }
 
-  /**
-   * 
-   * @returns devuelve canciones aleatorias
-   */
+
   getAllRandom$ (): Observable<any> {
     return this.httpClient.get(`${this.URL}/tracks`)
       .pipe(
