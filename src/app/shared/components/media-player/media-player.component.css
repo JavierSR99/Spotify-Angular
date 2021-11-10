@@ -152,3 +152,7 @@
     color: var(--color-blanco);
     font-size: var(--font-size-2);
 }
+
+button {
+    cursor: pointer;
+}

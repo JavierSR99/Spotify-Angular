@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { MultimediaService } from '@shared/services/multimedia.service';
 import { Subscription } from 'rxjs';
@@ -10,30 +10,35 @@ import { Subscription } from 'rxjs';
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
 
+  @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('');
   listObservers$: Array<Subscription> = [];
 
-  mockCover: TrackModel = {
-    cover: 'https://i.scdn.co/image/ab67616d0000b2739e588b0c2afe8178b2b76231',
-    album: 'Indigo',
-    name: 'Chris Brown',
-    url: 'http://localhost/track.mp3',
-    _id: 1
-  };
+  state:string = 'paused';
+  
 
   constructor(
-    private _multimediaService: MultimediaService
+    public _multimediaService: MultimediaService
   ) { }
 
   ngOnInit(): void {
-    const observer1$: Subscription = this._multimediaService.callback.subscribe((response) => {
-      console.log('Recibiendo canción ', response);
-    });
+    const observer1$ = this._multimediaService.playerStatus$
+      .subscribe(status => this.state = status);
 
     this.listObservers$ = [observer1$];
   }
 
   ngOnDestroy(): void {
     this.listObservers$.forEach(u => u.unsubscribe());
+  }
+
+  handlePosition(event: MouseEvent): void {
+    const elNative: HTMLElement = this.progressBar.nativeElement; // elemento nativo HTML progressbar
+    const { clientX } = event; // px de eje x dónde se hace click en progressbar
+    const { x, width } = elNative.getBoundingClientRect(); // ancho y e inicio de progressbar
+    const clickX = clientX - x; // click en referencia a la barra de progreso
+    const percentageFromX = (clickX * 100) / width; // porcentaje del click 
+
+    this._multimediaService.seekAudio(percentageFromX);
   }
 
 }
